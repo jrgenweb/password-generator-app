@@ -7,11 +7,10 @@ const btnCopy = document.querySelector(".btn-copy");
 btnCopy.addEventListener("click", handleBtnCopy);
 
 const lengthEl = document.querySelector(".length");
-
 const resultIpt = document.getElementById("result_input");
 
-const alphabets = "ABCDEFGHIJKLMNOPQRSTUYVWZ";
-const symbols = "!()-.?[]_`~;:@#$%^&*+=";
+const alphabets = "ABCDEFGHIJKLMNOPQRSTUYVWZ"; //letters
+const symbols = "!()-.?[]_`~;:@#$%^&*+="; //allowed symbols
 
 const strength = [
   ["", ""],
@@ -23,26 +22,21 @@ const strength = [
 
 rangeEl.addEventListener("change", function (event) {
   const val = event.target.value;
-
   lengthEl.innerText = val;
 });
 
+/**add event listener for checkboxes */
 inludeEl.forEach((element) => {
   element.addEventListener("click", function (event) {
     const checkedEl = document.querySelectorAll(
       'input[type="checkbox"]:checked'
     );
-    console.log(checkedEl.length);
 
     const indicatorEl = document.querySelector(".generator__indicators");
-    indicatorEl.dataset.strength = strength[checkedEl.length][0];
+    indicatorEl.dataset.strength = strength[checkedEl.length][0]; //setting dataset for css
 
     indicatorEl.parentNode.children[1].innerText =
-      strength[checkedEl.length][1];
-
-    /*  if (event.target.checked) {
-    }
-    console.log("checked" + event.target.name); */
+      strength[checkedEl.length][1]; //show text for equivalent strength
   });
 });
 
@@ -54,7 +48,7 @@ function handleBtnCopy(e) {
 function handleBtnGenerate(e) {
   e.preventDefault();
   generate();
-  btnCopy.querySelector("span").classList.remove("show");
+  btnCopy.querySelector("span").classList.remove("show"); //hide copied text
 }
 
 function getRandomAlphabet(uppercase = false) {
@@ -81,17 +75,6 @@ function generate() {
     types.push(element.dataset.type);
   });
 
-  const divide = Math.floor(length / types.length);
-  if (divide === 0 || divide === Infinity) {
-    return;
-  }
-
-  let firstCycle = true;
-
-  /** Első nekifutás */
-
-  /* utána random választunk a lehetőségek közül */
-
   result.length != length;
   while (result.length != length) {
     const randomTypeIndex = Math.round(Math.random() * (types.length - 1));
@@ -114,6 +97,5 @@ function generate() {
     }
   }
 
-  console.log(result);
   resultIpt.value = result;
 }
