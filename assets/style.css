@@ -19,6 +19,7 @@
     --p: 24px;
 
     --fs-body-m: 16px;
+    --fs-body-l: 18px;
     --fs-heading-m: 24px;
     --fs-heading-l: 32px;
 
@@ -47,6 +48,7 @@
 input,
 button {
     font-size: inherit;
+    font-family: inherit;
 }
 
 html {
@@ -81,7 +83,6 @@ body {
 }
 
 main {
-    max-width: 540px;
     padding: var(--spacing);
 }
 .flex {
@@ -109,6 +110,22 @@ main {
         top: 50%;
 
         transform: translateY(-50%);
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--clr-green);
+        display: flex;
+        gap: 1rem;
+        & span {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        & span.show {
+            opacity: 1;
+        }
+        & img {
+            width: 17.5px;
+            height: 20px;
+        }
     }
     & input {
         width: 100%;
@@ -127,6 +144,7 @@ main {
         font-size: var(--fs-heading-m);
         line-height: var(--lh-heading-m);
         letter-spacing: 1px;
+        font-weight: bold;
     }
 }
 
@@ -142,7 +160,7 @@ main {
 .generator__length {
     & .length {
         color: var(--clr-green);
-        font-size: var(--fs-heading-l);
+        font-size: var(--fs-heading-m);
     }
     & .flex {
         margin-bottom: var(--spacing);
@@ -161,8 +179,9 @@ main {
     margin-bottom: var(--spacing);
     color: var(--clr-gray);
     text-transform: uppercase;
+
     & .value {
-        font-size: var(--fs-heading-m);
+        font-size: var(--fs-body-l);
         color: var(--clr-white-200);
     }
 }
@@ -239,6 +258,9 @@ button:focus {
     background-color: var(--clr-black-800);
     outline: 2px solid var(--clr-green);
     color: var(--clr-green);
+    & svg path {
+        fill: var(--clr-green);
+    }
 }
 
 /* checkbox customization */
@@ -315,4 +337,65 @@ input[type="checkbox"] {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+@media (min-width: 768px) {
+    .generator {
+        width: 540px;
+    }
+    .result {
+        & .btn-copy {
+            right: 2rem;
+
+            & img {
+                width: 21px;
+                height: 24px;
+            }
+        }
+        & input {
+            padding: 20px 2rem;
+
+            font-size: var(--fs-heading-l);
+            line-height: var(--lh-heading-l);
+        }
+        & input::placeholder {
+            font-size: var(--fs-heading-l);
+            line-height: var(--lh-heading-l);
+            letter-spacing: 0;
+        }
+    }
+    .generator .body {
+        margin-top: 24px;
+        padding: 2rem;
+    }
+    .generator__include {
+        padding: 1rem 0;
+    }
+
+    .body .generator__include {
+        padding-top: 2rem;
+        & .generator__checkbox {
+            font-size: var(--fs-body-l);
+        }
+    }
+    .generator__length {
+        & .length {
+            font-size: var(--fs-heading-l);
+        }
+        & .flex {
+            /* margin-bottom: var(--spacing); */
+        }
+    }
+    .generator__strength {
+        margin-bottom: 2rem;
+        padding: 1.5rem 2rem;
+    }
+
+    button {
+        padding: 1.5rem 0;
+    }
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
 }

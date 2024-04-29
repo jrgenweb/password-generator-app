@@ -1,92 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Password generator app</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
+    <title>Frontend Mentor | Password generator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Password Generator</h1>
+      <article class="generator">
+        <div class="result flex">
+          <input
+            type="text"
+            name="result_input"
+            id="result_input"
+            placeholder="PTx1f5DaFX"
+            disabled
+          />
 
-  <main>
-    <h1>Password Generator</h1>
-    <article class="generator">
-      <div class="result flex">        
-        <input type="text" name="" id="" placeholder="PT">
-        <a href="" class="btn-copy"><img src="assets/images/icon-copy.svg" alt="" srcset=""></a>
-      </div>
-      <div class="body">
+          <a href="" class="btn-copy">
+            <span> Copied </span>
+            <img src="assets/images/icon-copy.svg" alt="" srcset=""
+          /></a>
+        </div>
+        <div class="body">
           <div class="generator__length">
             <div class="flex">
-            <span>Character Length</span>
-            <span class="length">10</span>
-          </div>
-            <input type="range" name="" id="" min="8" max="32">
+              <span>Character Length</span>
+              <span class="length">10</span>
+            </div>
+            <input type="range" name="" id="" min="8" max="16" />
           </div>
           <div class="generator__include">
             <div class="generator__checkbox">
-              
               <label for="cb_uppercase">
-                <input type="checkbox" name="cb_uppercase" id="cb_uppercase">
-                <span class="checkmark"></span>  
-                Include Uppercase Letters</label>
+                <input
+                  type="checkbox"
+                  name="includes"
+                  data-type="uppercase"
+                  id="cb_uppercase"
+                />
+                <span class="checkmark"></span>
+                Include Uppercase Letters</label
+              >
             </div>
-            <div class="generator__checkbox">              
+            <div class="generator__checkbox">
               <label for="cb_lowercase">
-                <input type="checkbox" name="cb_lowercase" id="cb_lowercase">
-              <span class="checkmark"></span>
-                Include Lowercase Letters</label>
+                <input
+                  type="checkbox"
+                  name="includes"
+                  data-type="lowercase"
+                  id="cb_lowercase"
+                />
+                <span class="checkmark"></span>
+                Include Lowercase Letters</label
+              >
             </div>
             <div class="generator__checkbox">
-              
               <label for="cb_number">
-                <input type="checkbox" name="cb_number" id="cb_number">
-              <span class="checkmark"></span>
-                Include Numbers</label>
+                <input
+                  type="checkbox"
+                  name="includes"
+                  data-type="number"
+                  id="cb_number"
+                />
+                <span class="checkmark"></span>
+                Include Numbers</label
+              >
             </div>
             <div class="generator__checkbox">
-              
               <label for="cb_symbol">
-                <input type="checkbox" name="cb_symbol" id="cb_symbol">
-              <span class="checkmark"></span>
-                Include Symbols</label>
+                <input
+                  type="checkbox"
+                  name="includes"
+                  data-type="symbol"
+                  id="cb_symbol"
+                />
+                <span class="checkmark"></span>
+                Include Symbols</label
+              >
             </div>
           </div>
           <div class="generator__strength">
             <div class="flex">
               <span>Strength</span>
               <span class="value"></span>
-              <div class="generator__indicators" data-strength="weak">
+              <div class="generator__indicators" data-strength="">
                 <div class="generator__indicator"></div>
                 <div class="generator__indicator"></div>
                 <div class="generator__indicator"></div>
                 <div class="generator__indicator"></div>
               </div>
             </div>
-            
           </div>
 
-          <button>Generate</button>
-      </div>
-    </article>
-  </main>
-  
+          <button class="btn-generate">
+            Generate
+            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill="#24232C"
+                d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+              />
+            </svg>
+          </button>
+        </div>
+      </article>
+    </main>
 
-  
-  
-  
-  
-
-  
-
-  
-<script src="assets/scripts.js"></script>
-</body>
+    <script src="assets/scripts.js"></script>
+  </body>
 </html>
